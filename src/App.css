@@ -1,0 +1,139 @@
+.Fetchapi{
+  background-image: url('C:\Users\Malik Faisal\Desktop\React_foodapp\React_foodapp\src\assets\Api_pic.jpg');
+  background-size: cover;
+  background-position: center;  
+  width: 100%;  
+  border: 3px solid rgb(193, 30, 30);
+  margin: 20px;
+  padding: 50px; 
+width: 120%;
+min-height: 350px;
+ margin-left: 5%;
+ border-style:double;
+ }
+div {
+  width:42%;  
+  display:inline-block;
+  padding:10px;
+}
+
+
+.image-border {
+  border: 4px solid #1ee1b4;
+  border-radius: 10px;
+  padding: 2px;
+}
+.foodInfo{
+    background-color: aliceblue;
+    margin-left: 150%;    
+    border: 2px solid rgb(216, 22, 22);  
+  padding: 50px; 
+  position : absolute;
+  top: 370px;
+  right: 10px;
+  width: 300px;
+}
+
+.searchBar{
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 22px;
+  margin-left: 80%;
+
+}
+.searchBar input{
+  width: 400px;
+  padding: 9px;
+  font-size: 22px;
+  border: none;
+  background-color: rgba(83, 155, 155, 0.148);
+  border-radius: 6px;
+}
+.searchBar button{
+  width: 90px;
+  background-color: aquamarine;
+  color: black;
+  border: none;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.imagesApi button{
+  width: 150px;
+  background-color: rgba(75, 155, 91, 0.801);
+  color: black;
+  border-style: ridge;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 4%;  
+}
+.imagesApi  button:hover
+{
+  color: #0d466a; 
+  transform: scale(1.2);
+}
+
+.header{
+  background-image: url('C:\Users\Malik Faisal\Desktop\React_foodapp\React_foodapp\src\assets\Header_Pic.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-left: 8%;
+  color:rgb(17, 17, 16) ;
+  font-size:x-large;
+  font-style: italic;  
+  width: 200%;
+  text-align: left;
+}
+.social-icons  {
+ margin-left: 115%;
+  width: 300px;
+  font-size: 35px;
+  color: #021f2a;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons :hover {
+  color: #046071; 
+  transform: scale(1.2);
+}
+.card
+{
+  margin-left: 10%;
+  margin-top: -18%;
+}
+.payment-icons {
+  margin-left: 50%;
+  display: flex;
+  gap: 16px;
+  font-size: 50px;
+  color: #333;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.payment-icons svg:hover {
+  color: #0070ba; 
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+h2{
+  color:white;
+  font-size: x-large;
+  background-color: #0b9ddc;
+  width: 300px;
+  padding: 5px;  
+}
+.header h1
+{
+  background-color: rgb(8, 240, 162);
+  width: 460px;
+  padding: 2px;
+}
+.Fetchapi h1
+{
+  color: rgb(11, 1, 1);
+ font-size:xx-large;
+ margin-top: -90px;
+}
