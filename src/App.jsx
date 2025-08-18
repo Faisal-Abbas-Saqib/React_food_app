@@ -8,26 +8,27 @@ import { NavLink } from 'react-router-dom';
 
 
 function App() {
-  const[search,setSearch]=useState("");   // search  for food item
-  const[data, setData] = useState([]);   
-  const[message,setMessage]=useState("");   // show msg if no text entered
-  const[foodFetch, setFoodFetch] = useState(false); // only run useEffect hook if state is true
- 
+  const [search,setSearch] = useState("");   // search  for food item
+  const [data, setData] = useState([]);   
+  const [message,setMessage] = useState("");   // show msg if no text entered
+  const [foodFetch, setFoodFetch] = useState(false); // only run useEffect hook if state is true
 
  useEffect(() => {
 
   if(foodFetch){
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
       .then((res) => {
-       return res.json();})
-      .then((data) => {console.log(data);
-        setData(data.meals);
-            }) ; setFoodFetch(false);}
+        return res.json();})
+      .then((data) => {
+          console.log(data);
+          setData(data.meals);
+      });
+      setFoodFetch(false);}
     }, [foodFetch]);           // only runs if state is changed
 
     function foodSelect1()           // run function if search button is clicked
                           {
-                              if(search==""){
+                              if(search.trim() === ""){
                               setMessage("Please enter Food type!");
                               setSearch("");
                           }

@@ -20,7 +20,7 @@ const Infofood = () => {
           <p>{detail.strMeal}</p>
           <p>{detail.strArea}</p>
           <p>{detail.strCategory}</p>
-          <p>{detail.strInstructions}</p>
+          <p>{detail.strInstructions.split('\n').map((str) => <p>{str}</p>)}</p>
           <NavLink to="/"></NavLink>      {/*connect to main page (APP)*/}
         </div>             
        </>
