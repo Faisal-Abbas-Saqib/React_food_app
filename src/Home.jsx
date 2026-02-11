@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
-import "./App.css";
-import Infofood from "./Infofood";
-import Header1 from "./assets/Header1";
-import Footer1 from "./assets/Footer1";
-import { Route, Routes } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-function App() {
+function Home() {
   const [search, setSearch] = useState(""); // search  for food item
   const [data, setData] = useState([]);
   const [message, setMessage] = useState(""); // show msg if no text entered
@@ -36,10 +31,8 @@ function App() {
       setMessage("");
     }
   }
-
   return (
-    <>
-      <Header1 />
+    <div>
       <div className="searchBar">
         <input
           type="text"
@@ -60,7 +53,7 @@ function App() {
           data.map((data2) => {
             console.log(data2);
             return (
-              <div className="imagesApi" key={data2.idMeal}>
+              <div className="imagesApi">
                 <img
                   src={data2.strMealThumb}
                   width={150}
@@ -75,11 +68,8 @@ function App() {
           })
         )}
       </div>
-      <Routes>
-        <Route path="/:mealid" element={<Infofood />} />
-      </Routes>
-      <Footer1 />
-    </>
+    </div>
   );
 }
-export default App;
+
+export default Home;
