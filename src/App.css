@@ -1,20 +1,9 @@
-.Fetchapi{
-  background-image: url('C:\Users\Malik Faisal\Desktop\React_foodapp\React_foodapp\src\assets\Api_pic.jpg');
-  background-size: cover;
-  background-position: center;  
-  width: 100%;  
-  border: 3px solid rgb(193, 30, 30);
-  margin: 20px;
-  padding: 50px; 
-width: 460%;
-min-height: 350px;
- margin-left: 5%;
- border-style:double;
- }
+
 div {
   width:42%;  
   display:inline-block;
   padding:10px;
+  
 }
 
 
@@ -65,7 +54,7 @@ div {
   font-size: 15px;
   border-radius: 6px;
   cursor: pointer;
-  margin-left: 4%;  
+  margin-left: 30%;  
 }
 .imagesApi  button:hover
 {
@@ -73,17 +62,7 @@ div {
   transform: scale(1.2);
 }
 
-.header{
-  background-image: url('C:\Users\Malik Faisal\Desktop\React_foodapp\React_foodapp\src\assets\Header_Pic.jpg');
-  background-size: cover;
-  background-position: center;
-  margin-left: 8%;
-  color:rgb(17, 17, 16) ;
-  font-size:x-large;
-  font-style: italic;  
-  width: 200%;
-  text-align: left;
-}
+
 .social-icons  {
  margin-left: 180%;
   width: 300px;
