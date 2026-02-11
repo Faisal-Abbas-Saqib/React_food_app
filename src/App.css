@@ -6,7 +6,7 @@
   border: 3px solid rgb(193, 30, 30);
   margin: 20px;
   padding: 50px; 
-width: 120%;
+width: 460%;
 min-height: 350px;
  margin-left: 5%;
  border-style:double;
@@ -25,13 +25,11 @@ div {
 }
 .foodInfo{
     background-color: aliceblue;
-    margin-left: 150%;    
+    margin-left: 16%;    
     border: 2px solid rgb(216, 22, 22);  
   padding: 50px; 
-  position : absolute;
-  top: 370px;
-  right: 10px;
-  width: 300px;
+  width: 170%;
+  margin-top: 5%;
 }
 
 .searchBar{
@@ -39,7 +37,7 @@ div {
   justify-content: center;
   gap: 7px;
   margin-top: 22px;
-  margin-left: 80%;
+  margin-left: 240%;
 
 }
 .searchBar input{
@@ -87,7 +85,7 @@ div {
   text-align: left;
 }
 .social-icons  {
- margin-left: 115%;
+ margin-left: 180%;
   width: 300px;
   font-size: 35px;
   color: #021f2a;
@@ -104,7 +102,7 @@ div {
   margin-top: -18%;
 }
 .payment-icons {
-  margin-left: 50%;
+  margin-left: 90%;
   display: flex;
   gap: 16px;
   font-size: 50px;

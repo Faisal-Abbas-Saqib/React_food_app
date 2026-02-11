@@ -29,7 +29,18 @@ const Infofood = () => {
             <p>{str}</p>
           ))}
         </p>
-        <NavLink to="/"></NavLink> {/*connect to main page (APP)*/}
+        <NavLink to="/">
+          <button
+            style={{
+              backgroundColor: "#007bff",
+              color: "#fff",
+              padding: "10px",
+              borderRadius: "4px",
+            }}
+          >
+            Home
+          </button>
+        </NavLink>
       </div>
     </>
   );
