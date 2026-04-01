@@ -4,7 +4,7 @@ import Infofood from "./Infofood";
 import Home from "./Home";
 import Header1 from "./assets/Header1";
 import Footer1 from "./assets/Footer1";
-import Header_pic from "./assets/Header_pic.jpg";
+import Header_pic from "./assets/Header_Pic.jpg";
 
 function App() {
   return (
