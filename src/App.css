@@ -1,62 +1,85 @@
-/* --- Global Resets --- */
+/* --- Reset --- */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
-  width: 100%;
-  overflow-x: hidden; /* Stops horizontal scrolling entirely */
+body {
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
   background-color: #fcfcfc;
 }
 
+/* --- Layout Container --- */
 .app-container {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers all children vertically */
 }
 
-/* --- Banner & Typography --- */
+/* --- Banner --- */
+.banner-wrapper {
+  width: 100%;
+  min-height: 250px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-overlay {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* --- Header Text --- */
 .header h1 {
   background-color: rgb(8, 240, 162);
-  width: 85%;
-  max-width: 500px;
-  padding: 15px;
-  margin: 0 auto 10px auto; 
-  font-size: 1.5rem;
+  padding: 12px 16px;
+  font-size: 1.4rem;
+  width: fit-content;
+  max-width: 100%;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 h2 {
-  color: white;
+  margin-top: 10px;
   background-color: #0b9ddc;
-  width: 80%;
-  max-width: 450px;
+  color: white;
   padding: 10px;
-  margin: 0 auto; 
   font-size: 1rem;
+  width: fit-content;
+  max-width: 100%;
 }
 
-/* --- Search Bar Fix --- */
+/* --- Content Area --- */
+.content-area {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* --- Search Bar --- */
 .searchBar {
   display: flex;
+  flex-wrap: wrap; /* KEY FIX for mobile */
   justify-content: center;
-  align-items: center;
   gap: 10px;
-  width: 90%;
+  margin: 30px auto;
+  width: 100%;
   max-width: 600px;
-  margin: 40px auto; /* More space between banner and search */
 }
 
 .searchBar input {
-  flex: 1;
+  flex: 1 1 250px;
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ddd;
   font-size: 16px;
-  outline: none;
 }
 
 .searchBar button {
@@ -68,39 +91,50 @@ h2 {
   cursor: pointer;
 }
 
-/* --- Grid/Images Fix --- */
-.content-area {
-  width: 100%;
-  max-width: 1200px; /* Limits desktop width so it doesn't look stretched */
-  padding: 20px;
-}
-
+/* --- Images --- */
 img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 8px;
-  display: block;
-  margin: 0 auto;
 }
 
-/* --- Social & Payment Icons --- */
-.social-icons, .payment-icons {
+/* --- Icons --- */
+.social-icons,
+.payment-icons {
   display: flex;
   justify-content: center;
-  gap: 25px;
-  font-size: 2.5rem;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 2rem;
   margin: 30px 0;
-  width: 100%;
 }
 
-/* --- Desktop Tweaks --- */
+/* --- Tablet --- */
 @media (min-width: 768px) {
-  .header h1, h2 {
-    margin: 0 0 10px 10%; /* Re-offsets slightly for desktop aesthetic */
-    text-align: left;
+  .banner-wrapper {
+    min-height: 320px;
   }
-  
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
   .searchBar {
-    width: 50%; /* Keeps search bar compact on big screens */
+    flex-wrap: nowrap;
+  }
+}
+
+/* --- Desktop --- */
+@media (min-width: 1024px) {
+  .banner-wrapper {
+    min-height: 400px;
+  }
+
+  .banner-overlay {
+    padding-left: 60px;
   }
 }
