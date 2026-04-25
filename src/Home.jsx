@@ -31,8 +31,6 @@ function Home() {
 
   return (
     <div>
-      {/* ADDED: Visual Header with Api_pic */}
-
       <div className="searchBar">
         <input
           type="text"
@@ -43,37 +41,29 @@ function Home() {
         <button onClick={foodSelect1}>Search</button>
       </div>
 
-      <h3 style={{ textAlign: "center", color: "red" }}>{message}</h3>
+      {message && (
+        <h3 style={{ textAlign: "center", color: "red", margin: "10px 0" }}>
+          {message}
+        </h3>
+      )}
 
       <div
         className="Fetchapi"
         style={{
-          backgroundImage: `url(${Api_pic})`, // Using the imported variable
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          width: "300%",
-          border: "3px solid rgb(193, 30, 30)",
-          margin: "20px",
-          padding: "0px",
-          width: "505%",
-          minHeight: "350px",
-          marginLeft: "5%",
-          borderStyle: "double",
+          backgroundImage: `url(${Api_pic})`,
         }}
       >
         {!data ? (
-          <h1>"No data found!"</h1>
+          <h2 style={{ gridColumn: "1 / -1", textAlign: "center" }}>
+            No data found!
+          </h2>
         ) : (
           data.map((data2) => (
             <div className="imagesApi" key={data2.idMeal}>
               <img
                 src={data2.strMealThumb}
-                width={160}
-                style={{ marginLeft: 120 }}
-                className="image-border"
                 alt={data2.strMeal}
               />
-
               <NavLink to={`/${data2.idMeal}`}>
                 <button>{data2.strMeal}</button>
               </NavLink>

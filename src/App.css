@@ -5,8 +5,13 @@
   padding: 0;
 }
 
+html,
 body {
+  width: 100%;
   overflow-x: hidden;
+}
+
+body {
   font-family: Arial, sans-serif;
   background-color: #fcfcfc;
 }
@@ -16,12 +21,13 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 /* --- Banner --- */
 .banner-wrapper {
   width: 100%;
-  min-height: 250px;
+  min-height: 180px;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -32,50 +38,56 @@ body {
 .banner-overlay {
   width: 100%;
   max-width: 1200px;
-  padding: 20px;
+  padding: 15px;
+  margin: 0 auto;
 }
 
 /* --- Header Text --- */
+.header {
+  padding: 0 10px;
+}
+
 .header h1 {
   background-color: rgb(8, 240, 162);
-  padding: 12px 16px;
-  font-size: 1.4rem;
-  width: fit-content;
-  max-width: 100%;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 10px 12px;
+  font-size: 1.1rem;
+  word-wrap: break-word;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 }
 
 h2 {
-  margin-top: 10px;
+  margin-top: 8px;
   background-color: #0b9ddc;
   color: white;
-  padding: 10px;
-  font-size: 1rem;
-  width: fit-content;
-  max-width: 100%;
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  word-wrap: break-word;
+  border-radius: 4px;
 }
 
 /* --- Content Area --- */
 .content-area {
   width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+  flex: 1;
+  padding: 15px;
+  margin: 0 auto;
 }
 
 /* --- Search Bar --- */
 .searchBar {
   display: flex;
-  flex-wrap: wrap; /* KEY FIX for mobile */
+  flex-direction: column;
   justify-content: center;
   gap: 10px;
-  margin: 30px auto;
+  margin: 20px auto;
   width: 100%;
-  max-width: 600px;
+  max-width: 100%;
+  padding: 0 10px;
 }
 
 .searchBar input {
-  flex: 1 1 250px;
+  width: 100%;
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ddd;
@@ -83,19 +95,124 @@ h2 {
 }
 
 .searchBar button {
+  width: 100%;
   padding: 12px 20px;
   background-color: #00ffcc;
   border: none;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.searchBar button:hover {
+  background-color: #00e0b8;
+}
+
+/* --- Fetch Container --- */
+.Fetchapi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 15px;
+  border: 3px solid rgb(193, 30, 30);
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.imagesApi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.imagesApi img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  border-radius: 8px;
+  margin: 0;
+}
+
+.imagesApi button {
+  width: 100%;
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.imagesApi button:hover {
+  background-color: #0056b3;
+}
+
+.imagesApi a {
+  width: 100%;
+  text-decoration: none;
+}
+
+/* --- Food Info Page --- */
+.foodInfo {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.foodInfo img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.foodInfo p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.foodInfo button {
+  width: 100%;
+  max-width: 200px;
+  padding: 12px;
+  margin-top: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* --- Footer --- */
+.card {
+  text-align: center;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.card h3 {
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 /* --- Images --- */
 img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
 }
 
 /* --- Icons --- */
@@ -104,37 +221,128 @@ img {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
-  font-size: 2rem;
-  margin: 30px 0;
+  gap: 15px;
+  font-size: 1.8rem;
+  margin: 20px 0;
+  padding: 0 10px;
+}
+
+.social-icons a {
+  color: #0b9ddc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: rgb(8, 240, 162);
+}
+
+.loading {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
 }
 
 /* --- Tablet --- */
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .banner-wrapper {
-    min-height: 320px;
+    min-height: 220px;
   }
 
   .header h1 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+    padding: 12px 16px;
   }
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    padding: 10px;
   }
 
   .searchBar {
-    flex-wrap: nowrap;
+    flex-direction: row;
+    max-width: 500px;
+  }
+
+  .searchBar input {
+    flex: 1;
+  }
+
+  .searchBar button {
+    width: auto;
+    min-width: 100px;
+  }
+
+  .Fetchapi {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+
+  .social-icons,
+  .payment-icons {
+    gap: 25px;
+    font-size: 2rem;
+  }
+
+  .card h3 {
+    font-size: 1rem;
   }
 }
 
 /* --- Desktop --- */
 @media (min-width: 1024px) {
   .banner-wrapper {
-    min-height: 400px;
+    min-height: 350px;
   }
 
   .banner-overlay {
     padding-left: 60px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .content-area {
+    padding: 40px 20px;
+  }
+
+  .searchBar {
+    max-width: 600px;
+    gap: 15px;
+  }
+
+  .Fetchapi {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+    padding: 30px;
+  }
+
+  .imagesApi {
+    padding: 15px;
+  }
+
+  .imagesApi img {
+    max-width: 160px;
+  }
+
+  .foodInfo {
+    padding: 40px;
+    margin: 50px auto;
+  }
+
+  .foodInfo img {
+    max-width: 400px;
+  }
+
+  .social-icons,
+  .payment-icons {
+    gap: 30px;
+    font-size: 2.5rem;
+    margin: 40px 0;
   }
 }

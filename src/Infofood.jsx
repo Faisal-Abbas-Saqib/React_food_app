@@ -18,27 +18,30 @@ const Infofood = () => {
   return (
     <>
       <div className="foodInfo">
-        {" "}
-        {/*shows detal info about selected food */}
-        <img src={detail.strMealThumb} width={200} />
-        <p>{detail.strMeal}</p>
-        <p>{detail.strArea}</p>
-        <p>{detail.strCategory}</p>
+        <img src={detail.strMealThumb} alt={detail.strMeal} />
+        <h2 style={{ backgroundColor: "#0b9ddc", color: "white", marginTop: "0" }}>
+          {detail.strMeal}
+        </h2>
         <p>
-          {detail.strInstructions.split("\n").map((str) => (
-            <p>{str}</p>
-          ))}
+          <strong>Area:</strong> {detail.strArea}
         </p>
+        <p>
+          <strong>Category:</strong> {detail.strCategory}
+        </p>
+        <div>
+          <strong>Instructions:</strong>
+          {detail.strInstructions.split("\n").map((str, idx) => (
+            <p key={idx}>{str}</p>
+          ))}
+        </div>
         <NavLink to="/">
           <button
             style={{
               backgroundColor: "#007bff",
               color: "#fff",
-              padding: "10px",
-              borderRadius: "4px",
             }}
           >
-            Home
+            ← Back to Home
           </button>
         </NavLink>
       </div>
