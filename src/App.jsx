@@ -9,18 +9,19 @@ import Header_pic from "./assets/Header_Pic.jpg";
 function App() {
   return (
     <>
-      {/* 2. Apply the background image to a container or pass it to Header1 */}
+      {/* Container for the background image banner */}
       <div
+        className="main-banner"
         style={{
           backgroundImage: `url(${Header_pic})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          marginLeft: "8%",
           color: "rgb(17, 17, 16)",
-          fontSize: "x-large",
           fontStyle: "italic",
-          width: "200%",
-          textAlign: "left",
+          width: "100%",          // Changed from 200%
+          marginLeft: "0",        // Changed from 8%
+          padding: "40px 0",      // Gives the banner some height
+          textAlign: "center",
         }}
       >
         <Header1 />
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/:mealid" element={<Infofood />} />
       </Routes>
+      
       <Footer1 />
     </>
   );
