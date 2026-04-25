@@ -8,32 +8,32 @@ import Header_pic from "./assets/Header_Pic.jpg";
 
 function App() {
   return (
-    <>
-      {/* Container for the background image banner */}
+    <div className="app-container"> {/* New wrapper to center everything */}
       <div
-        className="main-banner"
+        className="banner-wrapper"
         style={{
           backgroundImage: `url(${Header_pic})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "rgb(17, 17, 16)",
           fontStyle: "italic",
-          width: "100%",          // Changed from 200%
-          marginLeft: "0",        // Changed from 8%
-          padding: "40px 0",      // Gives the banner some height
+          width: "100%",          
+          padding: "60px 0",      
           textAlign: "center",
         }}
       >
         <Header1 />
       </div>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:mealid" element={<Infofood />} />
-      </Routes>
+      <main className="content-area">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:mealid" element={<Infofood />} />
+        </Routes>
+      </main>
       
       <Footer1 />
-    </>
+    </div>
   );
 }
 
