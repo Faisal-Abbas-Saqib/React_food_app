@@ -8,21 +8,15 @@ import Header_pic from "./assets/Header_Pic.jpg";
 
 function App() {
   return (
-    <div className="app-container"> {/* New wrapper to center everything */}
+    <div className="app-container">
+      
       <div
         className="banner-wrapper"
-        style={{
-          backgroundImage: `url(${Header_pic})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          color: "rgb(17, 17, 16)",
-          fontStyle: "italic",
-          width: "100%",          
-          padding: "60px 0",      
-          textAlign: "center",
-        }}
+        style={{ backgroundImage: `url(${Header_pic})` }}
       >
-        <Header1 />
+        <div className="banner-overlay">
+          <Header1 />
+        </div>
       </div>
 
       <main className="content-area">
@@ -31,7 +25,7 @@ function App() {
           <Route path="/:mealid" element={<Infofood />} />
         </Routes>
       </main>
-      
+
       <Footer1 />
     </div>
   );
