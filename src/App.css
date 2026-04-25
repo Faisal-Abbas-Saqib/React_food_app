@@ -1,4 +1,4 @@
-/* 1. Global Reset - This fixes padding and scroll issues */
+/* --- 1. THE FOUNDATION --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,56 +6,59 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  overflow-x: hidden; /* Stops horizontal shaking on mobile */
-  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden; /* This stops the horizontal "jumping" */
+  background-color: #fff;
+  width: 100%;
 }
 
-/* 2. Header & Banner Sections */
+/* --- 2. HEADER & BANNER (Fixes the overlapping text) --- */
 .header h1 {
   background-color: rgb(8, 240, 162);
-  width: 100%;
+  width: 90%; 
   max-width: 460px;
   padding: 10px;
-  margin: 10px auto;
+  margin: 20px auto; /* Centers it automatically */
+  font-size: 1.8rem;
   text-align: center;
 }
 
 h2 {
   color: white;
-  font-size: 1.5rem;
   background-color: #0b9ddc;
   width: 90%;
-  max-width: 300px;
-  padding: 10px;
-  margin: 10px auto;
+  max-width: 400px;
+  padding: 15px;
+  margin: 10px auto; /* Centers it automatically */
+  font-size: 1.2rem;
+  line-height: 1.4;
   text-align: center;
 }
 
-/* 3. Search Bar - Using Flexbox instead of large margins */
+/* --- 3. SEARCH BAR (Fixes the "disappearing" input) --- */
 .searchBar {
   display: flex;
+  flex-direction: row; /* Keep them side-by-side */
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin: 20px auto;
-  padding: 0 15px;
-  width: 100%;
+  gap: 8px;
+  margin: 30px auto;
+  width: 95%;
+  max-width: 600px;
 }
 
 .searchBar input {
-  flex: 1; /* Makes input take available space */
-  max-width: 400px;
+  flex: 1; /* Makes input fill available space */
+  min-width: 0; /* Important for flex items */
   padding: 12px;
   font-size: 16px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   background-color: rgba(83, 155, 155, 0.1);
   border-radius: 6px;
 }
 
 .searchBar button {
-  width: 90px;
-  padding: 12px 0;
+  padding: 12px 20px;
   background-color: aquamarine;
   border: none;
   font-weight: bold;
@@ -63,65 +66,48 @@ h2 {
   cursor: pointer;
 }
 
-/* 4. Main Content Area (Cards/Info) */
+/* --- 4. CONTENT & IMAGES --- */
 .foodInfo {
   background-color: aliceblue;
   margin: 20px auto;
   border: 2px solid rgb(216, 22, 22);
   padding: 20px;
-  width: 90%; /* Responsive width */
-  border-radius: 10px;
+  width: 90%; 
 }
 
-/* 5. Icons & Socials - No more margin-left: 180%! */
+img {
+  max-width: 100%; /* Ensures images never overflow the screen */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.image-border {
+  border: 4px solid #1ee1b4;
+  border-radius: 10px;
+  padding: 2px;
+}
+
+/* --- 5. SOCIAL & ICONS --- */
 .social-icons, .payment-icons {
   display: flex;
   justify-content: center;
   gap: 20px;
-  font-size: 35px;
-  margin: 20px 0;
+  font-size: 30px;
+  margin: 30px 0;
   width: 100%;
 }
 
-.social-icons a, .payment-icons svg {
-  color: #021f2a;
-  transition: transform 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #046071;
-  transform: scale(1.2);
-}
-
-/* 6. Image Styling */
-.image-border {
-  border: 4px solid #1ee1b4;
-  border-radius: 10px;
-  max-width: 100%; /* Important for mobile */
-  height: auto;
-}
-
-/* 7. Grid for the Food Items (If you have multiple) */
-.card {
-  margin: 20px auto;
-  text-align: center;
-  width: 90%;
-}
-
-/* --- DESKTOP ADJUSTMENTS (Screens wider than 768px) --- */
+/* --- 6. DESKTOP ONLY ADJUSTMENTS --- */
 @media (min-width: 768px) {
-  .searchBar {
-    margin-top: 30px;
+  /* On desktop, we can afford larger fonts or specific placements */
+  .header h1 {
+    margin-left: 10%; /* Only move it if you want it offset on desktop */
+    text-align: left;
   }
   
-  .foodInfo {
-    width: 60%; /* Smaller on desktop */
-  }
-  
-  /* If you want items side-by-side on desktop */
-  .main-layout {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  h2 {
+    margin-left: 10%;
+    text-align: left;
   }
 }
