@@ -45,22 +45,7 @@ function Home() {
 
       <h3 style={{ textAlign: "center", color: "red" }}>{message}</h3>
 
-      <div
-        className="Fetchapi"
-        style={{
-          backgroundImage: `url(${Api_pic})`, // Using the imported variable
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          width: "300%",
-          border: "3px solid rgb(193, 30, 30)",
-          margin: "20px",
-          padding: "0px",
-          width: "505%",
-          minHeight: "350px",
-          marginLeft: "5%",
-          borderStyle: "double",
-        }}
-      >
+      <div className="Fetchapi" style={{ backgroundImage: `url(${Api_pic})` }}>
         {!data ? (
           <h1>"No data found!"</h1>
         ) : (
@@ -68,14 +53,12 @@ function Home() {
             <div className="imagesApi" key={data2.idMeal}>
               <img
                 src={data2.strMealThumb}
-                width={160}
-                style={{ marginLeft: 120 }}
                 className="image-border"
                 alt={data2.strMeal}
               />
 
               <NavLink to={`/${data2.idMeal}`}>
-                <button>{data2.strMeal}</button>
+                <button className="mealButton">{data2.strMeal}</button>
               </NavLink>
             </div>
           ))
