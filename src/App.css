@@ -1,109 +1,80 @@
-/* --- Large Screens --- */
-@media (min-width: 1440px) {
-  .content-area {
-    max-width: 1400px;
-  }
-
-  .Fetchapi {
-    max-width: 1400px;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  }
-
-  .banner-overlay {
-    max-width: 1400px;
-  }
-
-  .foodInfo {
-    max-width: 1100px;
-  }
+/* --- Fix Banner Text Overflow --- */
+.header {
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
-/* --- Small Mobile Fixes --- */
-@media (max-width: 480px) {
+.header h1,
+h2 {
+  word-break: break-word;
+}
+
+/* --- Improve Banner Readability --- */
+.banner-wrapper {
+  padding: 0 10px;
+}
+
+.banner-overlay {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+}
+
+/* --- Fix Search Bar Alignment --- */
+.searchBar {
+  align-items: stretch;
+}
+
+.searchBar input,
+.searchBar button {
+  width: 100%;
+}
+
+/* --- Fix Social Icons Spacing --- */
+.social-icons {
+  justify-content: flex-start;
+  padding-left: 15px;
+}
+
+/* --- Fix Address Text Overflow --- */
+.content-area p {
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* --- Payment Icons Wrap Properly --- */
+.payment-icons {
+  justify-content: flex-start;
+  padding-left: 15px;
+}
+
+/* --- Tablet Fix --- */
+@media (min-width: 768px) {
   .banner-overlay {
-    padding: 10px;
+    background: transparent;
   }
 
-  .header h1 {
-    font-size: 1.2rem;
-    padding: 8px 10px;
-  }
-
-  h2 {
-    font-size: 0.9rem;
-    padding: 6px 8px;
-  }
-
-  .content-area {
-    padding: 15px;
-  }
-
-  .Fetchapi {
-    padding: 12px;
-    gap: 12px;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  }
-
-  .mealButton {
-    padding: 8px 10px;
-    font-size: 0.9rem;
+  .social-icons,
+  .payment-icons {
+    justify-content: center;
+    padding-left: 0;
   }
 
   .searchBar input {
-    flex: 1 1 100%;
+    width: auto;
   }
 
   .searchBar button {
-    width: 100%;
-  }
-
-  .foodTitle {
-    font-size: 1.1rem;
-  }
-
-  .foodMeta {
-    flex-direction: column;
-    gap: 6px;
+    width: auto;
   }
 }
 
-/* --- Prevent Overflow Issues --- */
-.imagesApi,
-.foodInfo,
-.content-area {
-  min-width: 0;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* --- Better Grid Behavior --- */
-.Fetchapi {
-  grid-auto-rows: 1fr;
-}
-
-/* --- Improve Touch Targets --- */
-.mealButton,
-.homeButton,
-.searchBar button {
-  min-height: 44px;
-}
-
-/* --- Improve Input Responsiveness --- */
-.searchBar input {
-  min-width: 0;
-}
-
-/* --- Better Spacing for Ultra Small Screens --- */
-@media (max-width: 360px) {
-  .Fetchapi {
-    grid-template-columns: 1fr;
+/* --- Desktop Refinement --- */
+@media (min-width: 1024px) {
+  .header h1 {
+    font-size: 2rem;
   }
 
-  .searchBar {
-    gap: 8px;
+  h2 {
+    font-size: 1.3rem;
   }
 }
