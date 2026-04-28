@@ -1,48 +1,109 @@
-/* === SAFE RESPONSIVE ADDITIONS (NON-BREAKING) === */
-
-/* Prevent grid/flex children overflow */
-.imagesApi {
-  min-width: 0;
-}
-
-.imagesApi * {
-  min-width: 0;
-}
-
-/* Ensure inputs and buttons never overflow container */
-.searchBar input {
-  width: 100%;
-}
-
-.searchBar button {
-  max-width: 100%;
-}
-
-/* Improve handling of long text inside cards */
-.imagesApi,
-.foodInfo {
-  overflow-wrap: break-word;
-}
-
-/* Small mobile optimization */
-@media (max-width: 480px) {
+/* --- Large Screens --- */
+@media (min-width: 1440px) {
   .content-area {
-    padding: var(--space-md) var(--space-sm);
-  }
-
-  .searchBar {
-    margin: var(--space-lg) auto;
+    max-width: 1400px;
   }
 
   .Fetchapi {
-    padding: var(--space-sm);
-    gap: var(--space-sm);
+    max-width: 1400px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .banner-overlay {
+    max-width: 1400px;
+  }
+
+  .foodInfo {
+    max-width: 1100px;
   }
 }
 
-/* Extra small devices safeguard */
+/* --- Small Mobile Fixes --- */
+@media (max-width: 480px) {
+  .banner-overlay {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 1.2rem;
+    padding: 8px 10px;
+  }
+
+  h2 {
+    font-size: 0.9rem;
+    padding: 6px 8px;
+  }
+
+  .content-area {
+    padding: 15px;
+  }
+
+  .Fetchapi {
+    padding: 12px;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .mealButton {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  .searchBar input {
+    flex: 1 1 100%;
+  }
+
+  .searchBar button {
+    width: 100%;
+  }
+
+  .foodTitle {
+    font-size: 1.1rem;
+  }
+
+  .foodMeta {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+/* --- Prevent Overflow Issues --- */
+.imagesApi,
+.foodInfo,
+.content-area {
+  min-width: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Better Grid Behavior --- */
+.Fetchapi {
+  grid-auto-rows: 1fr;
+}
+
+/* --- Improve Touch Targets --- */
+.mealButton,
+.homeButton,
+.searchBar button {
+  min-height: 44px;
+}
+
+/* --- Improve Input Responsiveness --- */
+.searchBar input {
+  min-width: 0;
+}
+
+/* --- Better Spacing for Ultra Small Screens --- */
 @media (max-width: 360px) {
   .Fetchapi {
     grid-template-columns: 1fr;
+  }
+
+  .searchBar {
+    gap: 8px;
   }
 }
