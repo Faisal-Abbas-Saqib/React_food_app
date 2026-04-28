@@ -1,80 +1,127 @@
-/* --- Fix Banner Text Overflow --- */
-.header {
-  max-width: 100%;
-  overflow-wrap: break-word;
+/* --- Mobile First Enhancements --- */
+
+/* --- Layout Container --- */
+.app-container {
+  min-height: 100vh;
 }
 
-.header h1,
-h2 {
-  word-break: break-word;
-}
-
-/* --- Improve Banner Readability --- */
+/* --- Banner --- */
 .banner-wrapper {
-  padding: 0 10px;
+  padding: 0 16px;
 }
 
 .banner-overlay {
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-/* --- Fix Search Bar Alignment --- */
+/* --- Header Text --- */
+.header h1 {
+  font-size: clamp(1.2rem, 5vw, 1.4rem);
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: clamp(0.9rem, 4vw, 1rem);
+}
+
+/* --- Content Area --- */
+.content-area {
+  padding: 16px;
+}
+
+/* --- Meal List / API results --- */
+.Fetchapi {
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  padding: 12px;
+}
+
+/* --- Search Bar --- */
 .searchBar {
-  align-items: stretch;
+  padding: 0 16px;
 }
 
-.searchBar input,
+.searchBar input {
+  flex: 1 1 100%;
+  min-width: 0; /* Prevents flex-item overflow */
+}
+
 .searchBar button {
-  width: 100%;
+  flex: 1 1 100%;
 }
 
-/* --- Fix Social Icons Spacing --- */
-.social-icons {
-  justify-content: flex-start;
-  padding-left: 15px;
+/* --- Food details page --- */
+.foodInfo {
+  padding: 12px;
 }
 
-/* --- Fix Address Text Overflow --- */
-.content-area p {
-  word-wrap: break-word;
-  line-height: 1.4;
+.foodTitle {
+  font-size: clamp(1.1rem, 6vw, 1.2rem);
 }
 
-/* --- Payment Icons Wrap Properly --- */
-.payment-icons {
-  justify-content: flex-start;
-  padding-left: 15px;
+/* --- Media Queries --- */
+
+/* Small Mobile (320px+) */
+@media (min-width: 320px) {
+  .Fetchapi {
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  }
 }
 
-/* --- Tablet Fix --- */
+/* Tablet (768px+) */
 @media (min-width: 768px) {
-  .banner-overlay {
-    background: transparent;
+  .content-area {
+    padding: 24px;
   }
 
-  .social-icons,
-  .payment-icons {
-    justify-content: center;
-    padding-left: 0;
-  }
-
-  .searchBar input {
-    width: auto;
+  .Fetchapi {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 24px;
   }
 
   .searchBar button {
-    width: auto;
+    flex: 0 0 auto;
+  }
+
+  .searchBar input {
+    flex: 1;
+  }
+
+  .foodInfo {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .foodInfo > * {
+    flex: 1 1 100%;
   }
 }
 
-/* --- Desktop Refinement --- */
+/* Desktop (1024px+) */
 @media (min-width: 1024px) {
-  .header h1 {
-    font-size: 2rem;
+  .content-area, 
+  .Fetchapi {
+    max-width: 1140px;
   }
 
-  h2 {
-    font-size: 1.3rem;
+  .Fetchapi {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Large screens (1440px+) */
+@media (min-width: 1440px) {
+  .content-area, 
+  .Fetchapi,
+  .banner-overlay {
+    max-width: 1320px;
+  }
+
+  .Fetchapi {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
