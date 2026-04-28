@@ -1,127 +1,81 @@
-/* --- Mobile First Enhancements --- */
+/* --- Visual Polish & Layout Refinement --- */
 
-/* --- Layout Container --- */
+/* Center the footer content and provide better spacing */
 .app-container {
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Centers the address and headers */
 }
 
-/* --- Banner --- */
-.banner-wrapper {
-  padding: 0 16px;
-}
-
+/* Fix the banner text alignment from the screenshot */
 .banner-overlay {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center; /* Centers the "Södertälje Food Point" text */
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 
-/* --- Header Text --- */
-.header h1 {
-  font-size: clamp(1.2rem, 5vw, 1.4rem);
-  line-height: 1.3;
+/* Ensure the banner images don't look stretched or cut off oddly */
+.banner-wrapper {
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
 }
 
-h2 {
-  font-size: clamp(0.9rem, 4vw, 1rem);
-}
-
-/* --- Content Area --- */
-.content-area {
-  padding: 16px;
-}
-
-/* --- Meal List / API results --- */
-.Fetchapi {
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
-  padding: 12px;
-}
-
-/* --- Search Bar --- */
+/* Improve the Search Bar appearance */
 .searchBar {
-  padding: 0 16px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px; /* Modern pill shape */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
 }
 
 .searchBar input {
-  flex: 1 1 100%;
-  min-width: 0; /* Prevents flex-item overflow */
+  border: 1px solid #eee;
+  padding: 12px 20px;
+  border-radius: 25px 0 0 25px;
 }
 
 .searchBar button {
-  flex: 1 1 100%;
+  border-radius: 0 25px 25px 0;
+  padding: 0 25px;
 }
 
-/* --- Food details page --- */
-.foodInfo {
-  padding: 12px;
+/* Polish the Social and Payment icon sections */
+.social-icons, 
+.payment-icons {
+  width: 100%;
+  max-width: 600px;
+  justify-content: center;
+  margin: 20px auto;
 }
 
-.foodTitle {
-  font-size: clamp(1.1rem, 6vw, 1.2rem);
+/* Ensure the address text is readable and centered */
+h3, .address-text { 
+  font-size: 1.1rem;
+  padding: 0 20px;
+  line-height: 1.6;
+  color: var(--ink);
 }
 
-/* --- Media Queries --- */
-
-/* Small Mobile (320px+) */
-@media (min-width: 320px) {
-  .Fetchapi {
-    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+/* Responsive Adjustments for Mobile */
+@media (max-width: 600px) {
+  .searchBar {
+    flex-direction: column;
+    border-radius: 12px;
   }
-}
-
-/* Tablet (768px+) */
-@media (min-width: 768px) {
-  .content-area {
-    padding: 24px;
-  }
-
-  .Fetchapi {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 24px;
-  }
-
+  
+  .searchBar input, 
   .searchBar button {
-    flex: 0 0 auto;
+    border-radius: 8px;
+    width: 100%;
   }
 
-  .searchBar input {
-    flex: 1;
-  }
-
-  .foodInfo {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
-
-  .foodInfo > * {
-    flex: 1 1 100%;
-  }
-}
-
-/* Desktop (1024px+) */
-@media (min-width: 1024px) {
-  .content-area, 
-  .Fetchapi {
-    max-width: 1140px;
-  }
-
-  .Fetchapi {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Large screens (1440px+) */
-@media (min-width: 1440px) {
-  .content-area, 
-  .Fetchapi,
-  .banner-overlay {
-    max-width: 1320px;
-  }
-
-  .Fetchapi {
-    grid-template-columns: repeat(5, 1fr);
+  .banner-wrapper {
+    height: 180px;
   }
 }
