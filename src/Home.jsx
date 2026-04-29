@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import Api_pic from "./assets/Api_pic.jpg"; // Import is correct here
+import Api_pic from "./assets/Api_pic.jpg";
 
 function Home() {
   const [search, setSearch] = useState("");
@@ -31,8 +31,6 @@ function Home() {
 
   return (
     <div>
-      {/* ADDED: Visual Header with Api_pic */}
-
       <div className="searchBar">
         <input
           type="text"
@@ -43,11 +41,15 @@ function Home() {
         <button onClick={foodSelect1}>Search</button>
       </div>
 
-      <h3 style={{ textAlign: "center", color: "red" }}>{message}</h3>
+      {message && (
+        <h3 style={{ textAlign: "center", color: "#c9a366", marginBottom: "12px", fontSize: "14px", letterSpacing: "0.05em" }}>
+          {message}
+        </h3>
+      )}
 
       <div className="Fetchapi" style={{ backgroundImage: `url(${Api_pic})` }}>
         {!data ? (
-          <h1>"No data found!"</h1>
+          <h1 style={{ color: "#666", fontStyle: "italic", fontWeight: 300 }}>No data found!</h1>
         ) : (
           data.map((data2) => (
             <div className="imagesApi" key={data2.idMeal}>
@@ -56,7 +58,6 @@ function Home() {
                 className="image-border"
                 alt={data2.strMeal}
               />
-
               <NavLink to={`/${data2.idMeal}`}>
                 <button className="mealButton">{data2.strMeal}</button>
               </NavLink>
