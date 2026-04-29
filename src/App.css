@@ -467,3 +467,40 @@ img {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 }
+/* --- Header Text --- */
+.header h1 {
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;                          /* pure white — max contrast */
+  font-size: clamp(1.1rem, 3.5vw, 2.4rem);
+  line-height: 1.15;
+  width: fit-content;
+  max-width: 100%;
+}
+
+h2 {
+  margin-top: 0;
+  background-color: transparent;
+  color: #c9a366;                          /* gold — visible on dark backdrop */
+  padding: 0;
+  font-size: clamp(0.72rem, 1.6vw, 0.92rem);
+  width: fit-content;
+  max-width: 100%;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* --- Banner overlay — keep it light so photo shows --- */
+.banner-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.25);    /* light — the textBlock handles contrast */
+  pointer-events: none;
+}
