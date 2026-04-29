@@ -7,15 +7,22 @@
 
 body {
   overflow-x: hidden;
-  font-family: Arial, sans-serif;
-  background-color: #fcfcfc;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background-color: #111;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
 :root {
-  --accent: #00ffcc;
-  --ink: #0f172a;
-  --muted-ink: rgba(15, 23, 42, 0.72);
-  --ring: rgba(11, 157, 220, 0.35);
+  --accent: #c9a366;
+  --accent-light: rgba(201, 163, 102, 0.08);
+  --ink: #e8d9bf;
+  --muted-ink: #666;
+  --ring: rgba(201, 163, 102, 0.45);
+  --surface: #111;
+  --surface-2: #0e0e0e;
+  --border: #2a2a2a;
+  --border-subtle: #1e1e1e;
 }
 
 /* --- Layout Container --- */
@@ -34,6 +41,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
 }
 
 .banner-overlay {
@@ -44,22 +53,30 @@ body {
 
 /* --- Header Text --- */
 .header h1 {
-  background-color: rgb(8, 240, 162);
+  background-color: transparent;
   padding: 10px 14px;
   font-size: clamp(1rem, 4vw, 1.4rem);
   width: fit-content;
   max-width: 100%;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
 }
 
 h2 {
   margin-top: 6px;
-  background-color: #0b9ddc;
-  color: white;
+  background-color: transparent;
+  color: var(--muted-ink);
   padding: 8px 10px;
   font-size: clamp(0.85rem, 2.5vw, 1rem);
   width: fit-content;
   max-width: 100%;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.04em;
 }
 
 /* --- Content Area --- */
@@ -77,8 +94,9 @@ h2 {
   margin: 20px auto;
   padding: 16px;
   min-height: 350px;
-  border: 3px double rgb(193, 30, 30);
+  border: 1px solid var(--border);
   border-radius: 12px;
+  background-color: var(--surface-2);
   background-size: cover;
   background-position: center;
   display: grid;
@@ -96,27 +114,31 @@ h2 {
 
 .image-border {
   border-radius: 12px;
-  border: 2px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 .mealButton {
   width: 100%;
   padding: 10px 12px;
-  border: none;
+  border: 1px solid var(--accent);
   border-radius: 10px;
   cursor: pointer;
-  font-weight: 700;
-  background: var(--accent);
-  color: var(--ink);
+  font-weight: 600;
+  background: transparent;
+  color: var(--accent);
   min-height: 44px;
-  transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 
 .mealButton:hover {
-  filter: brightness(0.96);
+  background: var(--accent);
+  color: #111;
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 24px rgba(201, 163, 102, 0.2);
 }
 
 .mealButton:active {
@@ -145,18 +167,41 @@ h2 {
   min-width: 0;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   font-size: 16px;
+  background-color: var(--surface-2);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.searchBar input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+.searchBar input::placeholder {
+  color: var(--muted-ink);
 }
 
 .searchBar button {
   padding: 12px 20px;
-  background-color: #00ffcc;
-  border: none;
+  background-color: transparent;
+  border: 1px solid var(--accent);
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
   cursor: pointer;
   min-height: 44px;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.searchBar button:hover {
+  background-color: var(--accent);
+  color: #111;
 }
 
 /* --- Images --- */
@@ -175,11 +220,14 @@ img {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  color: var(--ink);
 }
 
 .foodTitle {
   font-size: clamp(1rem, 3vw, 1.2rem);
   line-height: 1.25;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--ink);
 }
 
 .foodMeta {
@@ -188,23 +236,35 @@ img {
   gap: 10px;
   opacity: 0.9;
   font-weight: 600;
+  color: var(--accent);
 }
 
 .foodInstructions p {
   line-height: 1.55;
   margin: 0;
+  color: var(--muted-ink);
 }
 
 .homeButton {
-  border: none;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
   cursor: pointer;
   min-height: 44px;
-  transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 
 .homeButton:hover {
+  background: var(--accent);
+  color: #111;
   transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 10px 22px rgba(201, 163, 102, 0.2);
 }
 
 .homeButton:active {
@@ -235,17 +295,19 @@ img {
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
   text-decoration: none;
   transition: transform 160ms ease, color 160ms ease, background-color 160ms ease,
-    box-shadow 160ms ease;
+    border-color 160ms ease, box-shadow 160ms ease;
 }
 
 .social-icons a:hover {
-  color: var(--ink);
-  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: transparent;
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 24px rgba(201, 163, 102, 0.15);
 }
 
 .social-icons a:active {
@@ -259,14 +321,14 @@ img {
 }
 
 .payment-icons svg {
-  color: rgba(15, 23, 42, 0.55);
+  color: var(--muted-ink);
   transition: transform 160ms ease, color 160ms ease, filter 160ms ease;
 }
 
 .payment-icons svg:hover {
-  color: rgba(15, 23, 42, 0.92);
+  color: var(--accent);
   transform: translateY(-1px) scale(1.04);
-  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.14));
+  filter: drop-shadow(0 8px 14px rgba(201, 163, 102, 0.2));
 }
 
 /* Respect users who prefer reduced motion */
@@ -317,54 +379,4 @@ img {
 }
 
 /* --- Tablet (768px+) --- */
-@media (min-width: 768px) {
-  .banner-wrapper { height: clamp(200px, 22vw, 320px); }
-
-  .header h1 {
-    font-size: 1.8rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  .searchBar {
-    flex-wrap: nowrap;
-  }
-
-  .Fetchapi {
-    padding: 20px;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-
-  .foodTitle {
-    font-size: 1.5rem;
-  }
-}
-
-/* --- Desktop (1024px+) --- */
-@media (min-width: 1024px) {
-  .banner-wrapper { height: clamp(240px, 20vw, 360px); }
-
-  .banner-overlay {
-    padding-left: 60px;
-  }
-
-  .Fetchapi {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    padding: 24px;
-  }
-}
-
-/* --- Large screens (1440px+) --- */
-@media (min-width: 1440px) {
-  .content-area {
-    padding: 32px 40px;
-  }
-
-  .Fetchapi {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  }
-}
+@media (min-width: 768px
