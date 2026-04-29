@@ -1,113 +1,115 @@
-/* --- Visual Polish & Alignment Fixes --- */
-
-/* Center overall layout and typography */
-.app-container {
-  align-items: center;
-  text-align: center;
+/* --- Header Text --- */
+.header h1 {
+  font-size: clamp(1rem, 4vw, 1.4rem); /* was: 1.4rem */
 }
 
-/* Align banner content to center for better visual flow */
-.banner-overlay {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 0 auto;
+h2 {
+  font-size: clamp(0.85rem, 2.5vw, 1rem); /* was: 1rem */
 }
 
-/* Ensure headers are centered within their fit-content width */
-.header h1, h2 {
-  margin-left: auto;
-  margin-right: auto;
+/* --- Meal List / API results --- */
+.Fetchapi {
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); /* was: minmax(180px, 1fr) */
 }
 
-/* --- Search Bar Mobile Optimization --- */
-.searchBar {
-  padding: 0 16px;
-  width: 90%;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column; /* Stacked on small mobile */
-  gap: 12px;
+/* --- Meal Button --- */
+.mealButton {
+  min-height: 44px; /* ADDED */
 }
 
+/* --- Search Bar --- */
 .searchBar input {
-  width: 100%;
-  border-radius: 8px;
-  flex: none; /* Prevent shrinking */
+  min-width: 0; /* ADDED: prevents flex overflow */
 }
 
 .searchBar button {
-  width: 100%;
-  border-radius: 8px;
+  min-height: 44px; /* ADDED */
 }
 
-/* --- Grid & Spacing Improvements --- */
-.Fetchapi {
-  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
-  width: 95%;
-  margin: 30px auto;
-  padding: 12px;
+/* --- Food details page --- */
+.foodTitle {
+  font-size: clamp(1rem, 3vw, 1.2rem); /* was: 1.2rem */
 }
 
-/* --- Icon & Address Spacing --- */
-.social-icons,
-.payment-icons {
-  gap: 15px;
-  margin: 24px 0;
-  width: 100%;
-  justify-content: center;
+/* --- Home Button --- */
+.homeButton {
+  min-height: 44px; /* ADDED */
 }
 
-.payment-icons svg {
-  width: 38px;
-  height: auto;
-}
+/* --- Mobile (320px – 479px) --- */
+@media (max-width: 479px) {
+  .content-area {
+    padding: 12px;
+  }
 
-/* Ensure address is legible and centered */
-.app-container > h3, 
-.address-info {
-  font-size: 1.1rem;
-  padding: 0 15px;
-  line-height: 1.4;
-  margin: 15px 0;
+  .Fetchapi {
+    padding: 10px;
+    gap: 12px;
+    margin: 12px auto;
+  }
+
+  .searchBar {
+    margin: 16px auto;
+    padding: 0 12px;
+  }
+
+  .searchBar input {
+    flex: 1 1 100%;
+  }
+
+  .searchBar button {
+    width: 100%;
+  }
+
+  .foodInfo {
+    padding: 12px;
+  }
+
+  .social-icons,
+  .payment-icons {
+    gap: 12px;
+    font-size: 1.6rem;
+    margin: 20px 0;
+  }
 }
 
 /* --- Tablet (768px+) --- */
 @media (min-width: 768px) {
-  .searchBar {
-    flex-direction: row; /* Return to horizontal row */
-    width: 100%;
-    max-width: 600px;
-  }
+  .banner-wrapper { height: clamp(200px, 22vw, 320px); }
 
-  .searchBar input {
-    border-radius: 8px 0 0 8px;
-  }
+  .header h1 { font-size: 1.8rem; }
 
-  .searchBar button {
-    width: auto;
-    border-radius: 0 8px 8px 0;
-  }
+  h2 { font-size: 1.2rem; }
+
+  .searchBar { flex-wrap: nowrap; }
 
   .Fetchapi {
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    padding: 20px;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
+
+  .foodTitle { font-size: 1.5rem; }
 }
 
 /* --- Desktop (1024px+) --- */
 @media (min-width: 1024px) {
+  .banner-wrapper { height: clamp(240px, 20vw, 360px); }
+
+  .banner-overlay { padding-left: 60px; }
+
   .Fetchapi {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 1100px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    padding: 24px;
   }
 }
 
-/* --- Large Screens (1440px+) --- */
+/* --- Large screens (1440px+) --- */
 @media (min-width: 1440px) {
+  .content-area { padding: 32px 40px; }
+
   .Fetchapi {
-    grid-template-columns: repeat(5, 1fr);
-    max-width: 1300px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 }
