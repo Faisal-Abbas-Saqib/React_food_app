@@ -9,7 +9,6 @@ import Header_pic from "./assets/Header_Pic.jpg";
 function App() {
   return (
     <div className="app-container">
-      
       <div
         className="banner-wrapper"
         style={{ backgroundImage: `url(${Header_pic})` }}
@@ -18,14 +17,12 @@ function App() {
           <Header1 />
         </div>
       </div>
-
       <main className="content-area">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:mealid" element={<Infofood />} />
         </Routes>
       </main>
-
       <Footer1 />
     </div>
   );
