@@ -15,13 +15,14 @@ const styles = {
   textBlock: {
     display: 'inline-flex',
     flexDirection: 'column',
-    gap: '8px',
-    padding: '16px 20px',
-    background: 'rgba(10, 10, 10, 0.65)',
-    backdropFilter: 'blur(6px)',
-    WebkitBackdropFilter: 'blur(6px)',
-    borderLeft: '3px solid #c9a366',
+    gap: '10px',
+    padding: '18px 24px',
+    background: 'rgba(0, 0, 0, 0.82)',
+    backdropFilter: 'blur(8px)',
+    WebkitBackdropFilter: 'blur(8px)',
+    borderLeft: '4px solid #c9a366',
     borderRadius: '4px',
+    maxWidth: '90vw',
   }
 }
 
